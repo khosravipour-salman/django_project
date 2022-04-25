@@ -45,3 +45,15 @@ def password_edit(request, pk):
         'obj': obj,
     }
     return render(request, 'app/create.html', context)
+
+
+def password_delete(request, pk):
+    obj = get_object_or_404(PasswordModel, id=pk)
+    if request.method == 'POST':
+        obj.delete()
+        return redirect('list')
+
+    context = {
+        'obj': obj,
+    }
+    return render(request, 'app/confirm_delete.html', context)
