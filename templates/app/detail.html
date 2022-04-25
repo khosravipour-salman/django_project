@@ -22,8 +22,18 @@
             </ul>
         </div>
     </nav>
-    {{ obj.id }}
-    {{ obj.title }}
-    {{ obj.username }}
-    {{ obj.password }}
+
+    <div class="card">
+        <div class="card-header">
+            <b># {{ obj.id }}</b>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ obj.title }}</h5>
+            <p class="card-text"><b>Username</b>: {{ obj.username }}</p>
+            <p class="card-text"><b>Password</b>: {{ obj.password }}</p>
+            <a href="#" class="btn btn-primary">Edit</a>
+            <a href="#" class="btn btn-primary">Delete</a>
+        </div>
+    </div>
+
 {% endblock %}
