@@ -29,3 +29,19 @@ def password_create(request):
         return redirect('list')
 
     return render(request, 'app/create.html')
+
+
+def password_edit(request, pk):
+    obj = get_object_or_404(PasswordModel, id=pk)
+    if request.method == 'POST':
+        obj.title = request.POST['title']
+        obj.username = request.POST['username']
+        obj.password = request.POST['password']
+
+        obj.save()
+        return redirect('detail', pk=obj.id)
+
+    context = {
+        'obj': obj,
+    }
+    return render(request, 'app/create.html', context)
